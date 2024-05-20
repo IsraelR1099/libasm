@@ -98,8 +98,7 @@ ejemplo:
 ```
 ### Tipos de instrucciones
 1. Instrucciones de transferencia de datos.
-⋅⋅* Unordered sub-list.
-⋅⋅* mov destino, fuente: mueve un dato desde un origen a un destino.
-⋅⋅* push fuente: mueve el dato de fuente a la cima del stack.
-⋅⋅* pop destino: mueve el dato de la cima del stack al destino.
-⋅⋅* xchg destino, fuente: intercambia el contenido de los operandos.
+	* mov destino, fuente: mueve un dato desde un origen a un destino.
+	* push fuente: mueve el dato de fuente a la cima del stack.
+	* pop destino: mueve el dato de la cima del stack al destino.
+	* xchg destino, fuente: intercambia el contenido de los operandos.
