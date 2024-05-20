@@ -78,3 +78,27 @@ Los vectores se definen con un nombre de variable e indicando los valores que fo
 ### Definición de otros elementos
 - **extern**: Se utiliza para declarar una variable o función que se encuentra definido en otro archivo.
 - **global**: Permite hacer visible un símbolo definido en un archivo para otros archivos, de esta manera nos podemos referir a este símbolo desde otro archivo usando la directiva **extern**. Un uso especial para la directiva **global** es para definir el punto de entrada de un programa.
+
+### Tipos de operandos en x86_64
+**Operandos fuente y destino**
+El operando fuente especifica un valor, un registro o una dirección de memoria
+donde hemos de ir para buscar un dato que necesitamos para ejecutar la
+instrucción.
+El operando destino especifica un registro o una dirección de memoria donde
+hemos de guardar el dato que hemos obtenido al ejecutar la instrucción. Por
+ejemplo:
+```nasm
+	push rax ; operando fuente, el valor del registro rax se almacena en el
+				;stack.
+	pop rax ; operando destino, el valor del stack se almacena en el registro
+			; rax.
+	inc rax ; la instrucción inc realiza la operación rax = rax + 1.
+	mov rax, rbx ; es igual a rax = rbx.
+	add rax, 4 ; esta instrucción lleva a cabo la operación rax = rax + 4.
+```
+### Tipos de instrucciones
+1. Instrucciones de transferencia de datos.
+⋅⋅* mov destino, fuente: mueve un dato desde un origen a un destino.
+⋅⋅* push fuente: mueve el dato de fuente a la cima del stack.
+⋅⋅* pop destino: mueve el dato de la cima del stack al destino.
+⋅⋅* xchg destino, fuente: intercambia el contenido de los operandos.
