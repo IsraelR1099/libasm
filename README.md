@@ -131,4 +131,31 @@ ejemplo:
 	* **ret:** retorno de subrutina.
 	* **iret:** retorno de rutina (RSI).
 	* **int servicio:** llamada al sistema operativo.
-
+## Subrutinas y paso de parámetros:
+Una subrutina en ensamblador es equivalente a una función en C.
+### Definición de Subrutinas en ensamblador
+Una subrutina es un conjunto de instrucciones que inician su ejecución en un
+punto de código identificado con una etiqueta y finaliza la ejecución con un
+ret. Para llamar a la subrutina se utiliza la instrucción call y se indica la
+etiqueta.
+```nasm
+	call etiqueta
+```
+```nasm
+	;
+	; Instrucciones de la subrutina
+	;
+	ret
+```
+### Paso de parámetros y retorno de resultados
+Para pasar parámetros a una subrutina hay dos formas de hacerlo: mediante
+registros o con el stack.
+1. Paso de parámetros y retorno por medio de registros
+	* Debemos asignar el valor que queramos a un registro antes de hacer call,
+	  la subrutina tendrá en el registro escogido el parámetro.
+		```nasm
+			mov rbx, 5
+			call etiqueta ; En rax tendremos el valor 5
+		```
+	* Para el retorno de una subrutina, hacemos lo mismo, se asigna un registro
+	  que utilizaremos para almacenar el valor de retorno.
