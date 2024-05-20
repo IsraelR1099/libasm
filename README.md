@@ -159,3 +159,65 @@ registros o con el stack.
 		```
 	* Para el retorno de una subrutina, hacemos lo mismo, se asigna un registro
 	  que utilizaremos para almacenar el valor de retorno.
+
+## Llamadas a subrutinas y paso de parámetros desde C
+Para poder utilizar una función escrita en ensamblador desde C, debemos tener presente lo siguiente:
+1. La función escrita en ensamblador debe tener la directiva global.
+2. Si la función en ensamblador recibe parámetros, habrá que actualizar los registros del stack:
+	```nasm
+	func1:
+		push rbp ; Almacenar el registro rbp en el stack.
+		mov rbp, rsp ; Asignar el valor de rsp a rbp.
+		;
+		;
+		mov rsp, rbp ; Restaurar el valor de rsp.
+		pop rbp ; Restaurar el valor de rbp.
+	```
+### Paso de parámetros y retorno de resultados
+En 64 bits, los primeros 6 parámetros se pasan en los registros rdi, rsi, rdx, rcx, r8 y r9. Si hay más de 6 parámetros, se pasan por el stack. El valor de retorno se pasa siempre por el registro rax.
+Ejemplo:
+```nasm
+section .text
+global suma, producto, factorial
+
+suma:
+		; 2 parametros: rdi y rsi sin variables locales
+	mov rax, rdi
+	add rax, rsi
+	ret	; retorno de resultador usando rax
+
+producto:
+		; 2 parametros: rdi y rsi sin variables locales
+	mov rax, rdi
+	imul rax, rsi ; rax = rdi * rsi
+	ret	; retorno de resultador usando rax
+
+factorial:
+		; 1 parametro: rdi sin variables locales
+	push rdi ; rdi es modificada por la subrutina
+	mov rax, 1 ; rax tendra el resultado
+	while:
+		imul rax, rdi
+		dec rdi
+		cmp rdi, 1 ; se hace la comparación
+		jg while ; Si se cumplen las condiciones, se salta a la etiqueta while
+			; en rax esta el resultado
+	pop rdi ; se restaura el valor de rdi
+	ret
+```
+### LLamada a las funciones desde C
+Para utilizar funciones ensamblador dentro de un programa en C, las definimos en el programa pero sin implentarlas, solo se incluye la cabezera de la función. En las declaraciones de las funciones se indica el nombre de la función y los tipos de dato de cada parámetro y el tipo de dato que retorna la función. Se tiene que indicar delante de cada función que es una función externa utilizando la palabra reservada **extern**. Siguiendo el ejemplo anterior, el archivo en C sería:
+```c
+#include <stdio.h>
+extern int suma(int a, int b);
+extern int producto(int a, int b);
+extern int factorial(int a);
+
+int main(){
+	int a = 5, b = 10;
+	printf("La suma de %d + %d = %d\n", a, b, suma(a, b));
+	printf("El producto de %d * %d = %d\n", a, b, producto(a, b));
+	printf("El factorial de %d = %d\n", a, factorial(a));
+	return 0;
+}
+```
