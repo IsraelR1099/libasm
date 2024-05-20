@@ -97,8 +97,38 @@ ejemplo:
 	add rax, 4 ; esta instrucción lleva a cabo la operación rax = rax + 4.
 ```
 ### Tipos de instrucciones
-1. Instrucciones de transferencia de datos.
-	* mov destino, fuente: mueve un dato desde un origen a un destino.
-	* push fuente: mueve el dato de fuente a la cima del stack.
-	* pop destino: mueve el dato de la cima del stack al destino.
-	* xchg destino, fuente: intercambia el contenido de los operandos.
+1. Instrucciones de transferencia de datos:
+	* **mov destino, fuente:** mueve un dato desde un origen a un destino.
+	* **push fuente:** mueve el dato de fuente a la cima del stack.
+	* **pop destino:** mueve el dato de la cima del stack al destino.
+	* **xchg destino, fuente:** intercambia el contenido de los operandos.
+2. Instrucciones aritméticas y de comparación:
+	* **add destino,fuente:** suma aritmética de los dos operandos.
+	* **adc destino, fuente:** suma aritmética considerando el bit de transporte.
+	* **sub destino, fuente:** resta de dos operandos.
+	* **subb destino, fuente:** resta considerando el bit de transporte.
+	* **inc destino:** incrementa el destino en una unidad.
+	* **dec destino:** decrementa el destino en una unidad.
+	* **mul fuente:** multiplicación entera sin signo.
+	* **imul fuente:** multiplicación entera con signo.
+	* **div fuente:** división entera sin signo.
+	* **idiv fuente:** división entera con signo.
+	* **neg destino:** negación aritmética en complemento a 2.
+	* **cmp destino, fuente:** compara los dos operandos, hace una resta sin guardar el resultado.
+3. Instrucciones lógicas y de desplazamiento:
+	* **and destino, fuente:** operación AND lógica.
+	* **or destino, fuente:** operación OR lógica.
+	* **xor destino, fuente:** operación XOR lógica.
+	* **not destino:** negación lógica bit a bit.
+	* **sal destino, fuente:** desplazamiento aritmético/lógico a la izquierda.
+	* **sar destino, fuente:** desplazamiento aritmético a la derecha.
+	* **shr destino, fuente:** desplazamiento lógico a la derecha.
+	* **rol destino, fuente:** rotación lógica a la izquierda.
+	* **ror destino, fuente:** rotación lógica a la derecha.
+	* **jmp etiqueta:** salta a la etiqueta.
+	* **loop etiqueta:** decrementa el registro rcx y salta si rcx es diferente de cero.
+	* **call etiqueta:** llamada a subrutina.
+	* **ret:** retorno de subrutina.
+	* **iret:** retorno de rutina (RSI).
+	* **int servicio:** llamada al sistema operativo.
+
