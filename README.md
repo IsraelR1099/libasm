@@ -221,3 +221,7 @@ int main(){
 	return 0;
 }
 ```
+## System Calls
+En ensamblador tenemos dos formas para hacer llamadas al sistema:
+1. **int 80h**: Es la forma más antigua de hacer llamadas al sistema. El servicio que se solicita se indica el registro RAX. Los parámetros se pasan en los registros RBX, RCX, RDX, RSI, RDI y RBP.
+2. **syscall**: Los procesadores de 64 bits proporcionan este mecanismo mas eficiente. El servicio se solicita mediante el registro RAX pero los parámetros se pasan en los registros RDI, RSI, RDX, R8 y R9.
