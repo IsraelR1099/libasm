@@ -75,6 +75,16 @@ Los vectores se definen con un nombre de variable e indicando los valores que fo
 	vector3 dw 1000, 2000, 3000, 4000, 5000
 ```
 
+### Registros
+
+- **RAX:** Accumulator Register.
+- **RCX:** Counting Register.
+- **RBX:** Base Register.
+- **RDX:** Data Register.
+- **RDI:** Destination Index Register.
+- **RSI:** Source Index Register
+- **R8-R15:** Additional GP Registers.
+
 ### Definición de otros elementos
 - **extern**: Se utiliza para declarar una variable o función que se encuentra definido en otro archivo.
 - **global**: Permite hacer visible un símbolo definido en un archivo para otros archivos, de esta manera nos podemos referir a este símbolo desde otro archivo usando la directiva **extern**. Un uso especial para la directiva **global** es para definir el punto de entrada de un programa.
