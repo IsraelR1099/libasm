@@ -75,7 +75,7 @@ Los vectores se definen con un nombre de variable e indicando los valores que fo
 	vector3 dw 1000, 2000, 3000, 4000, 5000
 ```
 
-### Registros
+### Registros en x86_64
 
 - **RAX:** Accumulator Register.
 - **RCX:** Counting Register.
