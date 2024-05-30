@@ -1,5 +1,26 @@
-all: hello.o
-	ld -macos_version_min 10.15.7 -static -o hello hello.o
+NAME := libasm.a
+SRCS := ft_strlen.s
+OBJS := $(SRCS:.s=.o)
+CC := nasm
+FLAGS := -f elf64
+RM := rm -f
 
-hello.o: hello.s
-	nasm -f macho64 hello.s -o hello.o
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+	gcc -o test main.c -L. -lasm
+
+%.o: %.s
+	$(CC) $(FLAGS) $<
+
+clean:
+	$(RM) $(OBJS) || true
+
+fclean: clean
+	$(RM) $(NAME) || true
+	$(RM) test || true
+
+re: fclean all
+
+.PHONY: all clean fclean re
