@@ -235,3 +235,24 @@ int main(){
 En ensamblador tenemos dos formas para hacer llamadas al sistema:
 1. **int 80h**: Es la forma más antigua de hacer llamadas al sistema. El servicio que se solicita se indica el registro RAX. Los parámetros se pasan en los registros RBX, RCX, RDX, RSI, RDI y RBP.
 2. **syscall**: Los procesadores de 64 bits proporcionan este mecanismo mas eficiente. El servicio se solicita mediante el registro RAX pero los parámetros se pasan en los registros RDI, RSI, RDX, R8 y R9.
+
+## Summary of Register Capacities and values
+| Register | Bits | Maximum Unsigned value | Maximum signed value | C Data Type |
+|----------|------|------------------------|----------------------|------------|
+| RAX | 64 | 18,446,744,073,709,551,615 | 9,223,372,036,854,775,807 | unsigned long long int or uint64_t, int64_t |
+| EAX | 32 | 4,294,967,295 | 2,147,483,647 | unsigned int or uint32_t, int32_t |
+| AX | 16 | 65,535 | 32,767 | unsigned short or uint16_t, int16_t |
+| AH | 8 | 255 | 127 | unsigned char or uint8_t, int8_t |
+| AL | 8 | 255 | 127 | unsigned char or uint8_t, int8_t |
+
+## General Purpose Registers
+| Register | 64-bit | 32-bit | 16-bit | 8-bit (high) | 8-bit (low) |
+|----------|--------|--------|--------|--------------|-------------|
+| RAX | EAX | AX | AH | AL |
+| RBX | EBX | BX | BH | BL |
+| RCX | ECX | CX | CH | CL |
+| RDX | EDX | DX | DH | DL |
+| RSI | ESI | SI | SIL | - |
+| RDI | EDI | DI | DIL | - |
+| RBP | EBP | BP | BPL | - |
+| RSP | ESP | SP | SPL | - |
