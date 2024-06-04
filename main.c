@@ -9,5 +9,14 @@ int	main(void)
 	printf("strlen: %zu\n", strlen(str));
 	printf("ft_strlen: %zu\n", ft_strlen(str2));
 	printf("strlen: %zu\n", strlen(str2));
+	
+	char dest[20];
+	char src[20] = "hola";
+	printf("ft_strcpy: %s\n", ft_strcpy(dest, src));
+
+	char dest2[20];
+	char src2[20] = "hola";
+	printf("strcpy: %s\n", strcpy(dest2, src2));
+
 	return (0);
 }
