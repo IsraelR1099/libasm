@@ -18,5 +18,10 @@ int	main(void)
 	char src2[20] = "hola";
 	printf("strcpy: %s\n", strcpy(dest2, src2));
 
+	const char *s1 = "hola";
+	const char *s2 = "hola";
+	printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
+	printf("strcmp: %d\n", strcmp(s1, s2));
+
 	return (0);
 }

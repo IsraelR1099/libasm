@@ -6,7 +6,7 @@
 /*   By: israel <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:30:40 by israel            #+#    #+#             */
-/*   Updated: 2024/06/04 20:53:40 by israel           ###   ########.fr       */
+/*   Updated: 2024/06/05 18:36:27 by israel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <stdio.h>
 # include <string.h>
 
-extern size_t	ft_strlen(const char *s);
-extern char	*ft_strcpy(char *dst, const char *src);
+size_t	ft_strlen(const char *s);
+char	*ft_strcpy(char *dst, const char *src);
+int	ft_strcmp(const char *s1, const char *s2);
 
 #endif
