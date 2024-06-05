@@ -15,5 +15,5 @@ ft_strcmp:
 		inc rsi		; increment s2
 		jmp compare_loop	; loop back to compare
 end_compare:
-	sub al, bl	; subtract s1 from s2
+	sub rax, rbx	; subtract s1 from s2
 	ret
