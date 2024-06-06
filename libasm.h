@@ -6,7 +6,7 @@
 /*   By: israel <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:30:40 by israel            #+#    #+#             */
-/*   Updated: 2024/06/05 18:36:27 by israel           ###   ########.fr       */
+/*   Updated: 2024/06/06 17:49:26 by israel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char *dst, const char *src);
 int	ft_strcmp(const char *s1, const char *s2);
+ssize_t	ft_write(int fd, const void *buf, size_t count);
 
 #endif

@@ -35,5 +35,12 @@ int	main(void)
 	printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
 	printf("strcmp: %d\n", strcmp(s1, s2));
 
+	printf("###############################################\n");
+	printf("#FT_WRITE\n");
+	printf("###############################################\n");
+
+	printf("ft_write: %zd\n", ft_write(-1, "hola\n", 5));
+	printf("write: %zd\n", write(1, "hola\n", 5));
+
 	return (0);
 }
