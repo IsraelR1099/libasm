@@ -6,7 +6,7 @@
 /*   By: israel <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:30:40 by israel            #+#    #+#             */
-/*   Updated: 2024/06/06 17:49:26 by israel           ###   ########.fr       */
+/*   Updated: 2024/06/07 11:16:11 by irifarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
+# include <errno.h>
 
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char *dst, const char *src);

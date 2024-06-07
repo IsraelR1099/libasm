@@ -9,7 +9,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-	gcc -o test main.c -L. -lasm
+	clang -o test main.c -L. -lasm
 
 %.o: %.s
 	$(CC) $(FLAGS) $<

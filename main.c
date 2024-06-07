@@ -39,8 +39,17 @@ int	main(void)
 	printf("#FT_WRITE\n");
 	printf("###############################################\n");
 
-	printf("ft_write: %zd\n", ft_write(-1, "hola\n", 5));
-	printf("write: %zd\n", write(1, "hola\n", 5));
+
+	int ret = ft_write(-11, "hola\n", 5);
+	if (ret < 0)
+		printf("error is: %s\n", strerror(errno));
+	printf("value ret: %d\n", ret);
+
+	ret = write(1, "hola\n", 5);
+	if (ret < 0)
+		printf("error write is: %s\n", strerror(errno));
+	printf("value ret: %d\n", ret);
+
 
 	return (0);
 }
