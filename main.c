@@ -40,7 +40,7 @@ int	main(void)
 	printf("###############################################\n");
 
 
-	int ret = ft_write(-11, "hola\n", 5);
+	int ret = ft_write(-1, "hola\n", 5);
 	if (ret < 0)
 		printf("error is: %s\n", strerror(errno));
 	printf("value ret: %d\n", ret);
@@ -50,6 +50,37 @@ int	main(void)
 		printf("error write is: %s\n", strerror(errno));
 	printf("value ret: %d\n", ret);
 
+
+	printf("###############################################\n");
+	printf("#FT_READ\n");
+	printf("###############################################\n");
+
+
+	int	fd2 = open("hola.txt", O_RDONLY);
+	if (fd2 < 0)
+		perror("error ft_read: ");
+	char	buf2[20] = {0};
+	int		reabyte = ft_read(-1, buf2, 2);
+	if (reabyte < 0)
+		printf("ft read error %s\n", strerror(errno));
+	else
+	{
+		buf2[2] = '\0';
+		printf("reabytes es %d y buf2 %s\n", reabyte, buf2);
+	}
+
+	int fd = open("hola.txt", O_RDONLY);
+	if (fd < 0)
+		perror("error read: ");
+	char buf[20] = {0};
+	int rbytes = read(fd, buf, 2);
+	if (rbytes < 0)
+		printf("read error %s\n", strerror(errno));
+	else
+	{
+		buf[2] = '\0';
+		printf("rbytes es %d y buf %s\n", rbytes, buf);
+	}
 
 	return (0);
 }

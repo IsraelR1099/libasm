@@ -1,15 +1,15 @@
 NAME := libasm.a
-SRCS := ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s
+SRCS := ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s
 OBJS := $(SRCS:.s=.o)
 CC := nasm
-FLAGS := -f elf64
+FLAGS := -f elf64 -g
 RM := rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-	clang -o test main.c -L. -lasm
+	clang -g -o test main.c -L. -lasm
 
 %.o: %.s
 	$(CC) $(FLAGS) $<

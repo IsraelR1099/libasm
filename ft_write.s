@@ -14,12 +14,10 @@ ft_write:
 	; Check for error
 	cmp rax, 0	; check for error
 	jge no_error	; no error
-	;	neg rax		; if rax < 0, make it positive (errno is positive)
-	; mov rcx, rax	; save errno
-	push rax
+	neg rax		; if rax < 0, make it positive (errno is positive)
+	mov rcx, rax	; save errno
 	call __errno_location	; get errno location
-	pop QWORD [rax]
-	; mov [rax], rcx	; store errno
+	mov [rax], rcx	; store errno
 	mov rax, -1	; return -1
 	ret		; return
 
