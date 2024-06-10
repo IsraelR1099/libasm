@@ -1,4 +1,6 @@
 #include "libasm.h"
+#include <sys/types.h>
+#include <sys/wait.h>
 
 
 int	main(void)
@@ -81,6 +83,4 @@ int	main(void)
 		buf[2] = '\0';
 		printf("rbytes es %d y buf %s\n", rbytes, buf);
 	}
-
-	return (0);
 }
