@@ -7,11 +7,11 @@ RM := rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) libasm.h
 	ar rcs $(NAME) $(OBJS)
-	clang -Wall -Wextra -Werror -g -o test main.c -L. -lasm
+	clang -Wall -Wextra -Werror -g -o testasm main.c -L. -lasm
 
-%.o: %.s
+%.o: %.s libasm.h
 	$(CC) $(FLAGS) $<
 
 clean:
@@ -19,7 +19,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) || true
-	$(RM) test || true
+	$(RM) testasm || true
 
 re: fclean all
 

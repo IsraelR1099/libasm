@@ -6,7 +6,7 @@
 /*   By: israel <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:30:40 by israel            #+#    #+#             */
-/*   Updated: 2024/06/10 12:15:22 by irifarac         ###   ########.fr       */
+/*   Updated: 2024/06/10 13:36:35 by irifarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <errno.h>
+# include <stdlib.h>
 # include <fcntl.h>
 
 size_t  ft_strlen(const char *s);

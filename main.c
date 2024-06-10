@@ -3,7 +3,7 @@
 #include <sys/wait.h>
 
 
-int	main(void)
+void	testStrlen(void)
 {
 	char	*str = "Hel\0lo, World!";
 	char	*str2 = "\t\n\v\f\r";
@@ -16,10 +16,14 @@ int	main(void)
 	printf("strlen: %zu\n", strlen(str));
 	printf("ft_strlen: %zu\n", ft_strlen(str2));
 	printf("strlen: %zu\n", strlen(str2));
+}
 
+void	testStrcpy(void)
+{
 	printf("###############################################\n");
 	printf("#FT_STRCPY\n");
 	printf("###############################################\n");
+	
 	char dest[20];
 	char src[20] = "hola";
 	printf("ft_strcpy: %s\n", ft_strcpy(dest, src));
@@ -27,7 +31,10 @@ int	main(void)
 	char dest2[20];
 	char src2[20] = "hola";
 	printf("strcpy: %s\n", strcpy(dest2, src2));
+}
 
+void	testStrcmp(void)
+{
 	printf("###############################################\n");
 	printf("#FT_STRCMP\n");
 	printf("###############################################\n");
@@ -36,11 +43,13 @@ int	main(void)
 	const char *s2 = "hola como\0 estas";
 	printf("ft_strcmp: %d\n", ft_strcmp(s1, s2));
 	printf("strcmp: %d\n", strcmp(s1, s2));
+}
 
+void	testwrite(void)
+{
 	printf("###############################################\n");
 	printf("#FT_WRITE\n");
 	printf("###############################################\n");
-
 
 	int ret = ft_write(-1, "hola\n", 5);
 	if (ret < 0)
@@ -51,12 +60,13 @@ int	main(void)
 	if (ret < 0)
 		printf("error write is: %s\n", strerror(errno));
 	printf("value ret: %d\n", ret);
+}
 
-
+void	testread(void)
+{
 	printf("###############################################\n");
 	printf("#FT_READ\n");
 	printf("###############################################\n");
-
 
 	int	fd2 = open("hola.txt", O_RDONLY);
 	if (fd2 < 0)
@@ -83,17 +93,29 @@ int	main(void)
 		buf[2] = '\0';
 		printf("rbytes es %d y buf %s\n", rbytes, buf);
 	}
+}
 
+void	teststrdup(void)
+{
 	printf("###############################################\n");
 	printf("#FT_STRDUP\n");
 	printf("###############################################\n");
 
 	char	*tocopy = "hola como estas\n";
-
 	char	*retcopy = ft_strdup(tocopy);
 	if (!retcopy)
 		printf("strdup failed\n");
 	printf("ret ft strdup es: %s\n", retcopy);
+	free(retcopy);
+}
 
-	return (0);
+int	main(void)
+{
+	testStrlen();
+	testStrcpy();
+	testStrcmp();
+	testwrite();
+	testread();
+	teststrdup();
+		return (0);
 }
