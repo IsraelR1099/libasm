@@ -88,4 +88,12 @@ int	main(void)
 	printf("#FT_STRDUP\n");
 	printf("###############################################\n");
 
+	char	*tocopy = "hola como estas\n";
+
+	char	*retcopy = ft_strdup(tocopy);
+	if (!retcopy)
+		printf("strdup failed\n");
+	printf("ret ft strdup es: %s\n", retcopy);
+
+	return (0);
 }

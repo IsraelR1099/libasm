@@ -6,7 +6,7 @@
 /*   By: israel <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:30:40 by israel            #+#    #+#             */
-/*   Updated: 2024/06/07 12:56:15 by irifarac         ###   ########.fr       */
+/*   Updated: 2024/06/10 12:15:22 by irifarac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ char    *ft_strcpy(char *dst, const char *src);
 int     ft_strcmp(const char *s1, const char *s2);
 ssize_t ft_write(int fd, const void *buf, size_t count);
 ssize_t ft_read(int fd, void *buf, size_t count);
+char    *ft_strdup(const char *s);
 
 #endif
