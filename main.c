@@ -83,4 +83,9 @@ int	main(void)
 		buf[2] = '\0';
 		printf("rbytes es %d y buf %s\n", rbytes, buf);
 	}
+
+	printf("###############################################\n");
+	printf("#FT_STRDUP\n");
+	printf("###############################################\n");
+
 }
